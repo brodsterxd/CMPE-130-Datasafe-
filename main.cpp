@@ -86,7 +86,7 @@ public:
 void login() {
 	char u[16];
 	char p[16];
-	u[0] = '\0';//pass
+	u[0] = '\0';
 	p[0] = '\0';
 	char temp;
 
@@ -173,7 +173,7 @@ int main() {
 
 	t.hashlogin("weeee", "ayyy");
 
-		string plaintext = "ENCRYPT AND DECRYPT MY ASSS"; // encryp this
+		string plaintext = "ENCRYPT"; 
 
 	cout << plaintext << endl;
 	string KEY = "nguigmyy5treytyertjyertyyeyjterytjrejyrtyjwrteywejyy";
