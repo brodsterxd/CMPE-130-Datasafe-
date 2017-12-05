@@ -11,6 +11,137 @@ const int maxsize = 1000;
 const string KEY = "fi3mg9su5j1l0dua";
 const string apass = "12345";
 
+string usernameInput() {
+	char u[17];
+	u[0] = '\0';
+	char temp;
+
+	cout << "Username: ";
+	int i = 0;
+	while (1) {
+		temp = _getch();
+		if (i != 16) {
+			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
+				u[i] = temp;
+				i++;
+				cout << temp;
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				u[i] = '\0';
+				break;
+			}
+
+		}
+		else if (i == 16) {
+			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
+
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				u[i] = '\0';
+				break;
+			}
+		}
+	}
+	cout << endl;
+	string user = u;
+	return user;
+}
+
+string passwordInput() {
+	char p[17];
+	p[0] = '\0';
+	char temp;
+	cout << "Password: ";
+	int i = 0;
+	while (1) {
+		temp = _getch();
+		if (i != 16) {
+			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
+				p[i] = temp;
+				i++;
+				cout << "*";
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				p[i] = '\0';
+				break;
+			}
+
+		}
+		else if (i == 16) {
+			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
+
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				p[i] = '\0';
+				break;
+			}
+		}
+	}
+	cout << endl;
+	string pass = p;
+	return pass;
+
+}
+
+string dataInput() {
+	char d[51];
+	d[0] = '\0';
+	char temp;
+
+	int i = 0;
+	while (1) {
+		temp = _getch();
+		if (i != 50) {
+			if (temp >= 32 && temp <= 126) {
+				d[i] = temp;
+				i++;
+				cout << temp;
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				d[i] = '\0';
+				break;
+			}
+
+		}
+		else if (i == 50) {
+			if (temp >= 32 && temp <= 126) {
+
+			}
+			if (temp == '\b' && i >= 1) {
+				cout << "\b \b";
+				i--;
+			}
+			if (temp == '\r') {
+				d[i] = '\0';
+				break;
+			}
+		}
+	}
+	cout << endl;
+	string data = d;
+	return data;
+}
+
 string Encrypt(string in) {
 	byte key[16];
 	byte iv[16];
@@ -192,8 +323,7 @@ public:
 					else if (m == 2) {
 						cout << endl;
 						cout << "Enter new data (This will overwrite old data): ";
-						string buff;
-						cin >> buff;
+						string buff = dataInput();
 						buff = Encrypt(buff);
 						curr->user.data = buff;
 						cout << "Data Saved!" << endl;
@@ -224,94 +354,6 @@ public:
 		}
 	}
 };
-
-string usernameInput() {
-	char u[17];
-	u[0] = '\0';
-	char temp;
-
-	cout << "Username: ";
-	int i = 0;
-	while (1) {
-		temp = _getch();
-		if (i != 16) {
-			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
-				u[i] = temp;
-				i++;
-				cout << temp;
-			}
-			if (temp == '\b' && i >= 1) {
-				cout << "\b \b";
-				i--;
-			}
-			if (temp == '\r') {
-				u[i] = '\0';
-				break;
-			}
-
-		}
-		else if (i == 16) {
-			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
-		
-			}
-			if (temp == '\b' && i >= 1) {
-				cout << "\b \b";
-				i--;
-			}
-			if (temp == '\r') {
-				u[i] = '\0';
-				break;
-			}
-		}
-	}
-	cout << endl;
-	string user = u;
-	return user;
-}
-
-string passwordInput() {
-	char p[17];
-	p[0] = '\0';
-	char temp;
-	cout << "Password: ";
-	int i = 0;
-	while (1) {
-		temp = _getch();
-		if (i != 16) {
-			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
-				p[i] = temp;
-				i++;
-				cout << "*";
-			}
-			if (temp == '\b' && i >= 1) {
-				cout << "\b \b";
-				i--;
-			}
-			if (temp == '\r') {
-				p[i] = '\0';
-				break;
-			}
-
-		}
-		else if (i == 16) {
-			if ((temp >= 'a'&&temp <= 'z') || (temp >= 'A'&&temp <= 'Z') || (temp >= '0'&&temp <= '9')) {
-		
-			}
-			if (temp == '\b' && i >= 1) {
-				cout << "\b \b";
-				i--;
-			}
-			if (temp == '\r') {
-				p[i] = '\0';
-				break;
-			}
-		}
-	}
-	cout << endl;
-	string pass = p;
-	return pass;
-
-}
 
 
 int main() {
